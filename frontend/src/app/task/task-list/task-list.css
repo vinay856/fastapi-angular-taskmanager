@@ -1,0 +1,137 @@
+/* frontend/src/app/task/task-list/task-list.component.css */
+
+.task-list-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-family: 'Inter', sans-serif; /* Using Inter font */
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.task-items {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.no-tasks-message {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 15px;
+  border: 1px dashed #ddd;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.task-items li {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.task-items li:last-child {
+  border-bottom: none;
+}
+
+.task-items li:hover {
+  background-color: #fdfdfd;
+}
+
+.task-items input[type="checkbox"] {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #28a745; /* Green checkmark */
+}
+
+.task-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-title {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.task-description {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 3px;
+}
+
+.task-items li.completed .task-title,
+.task-items li.completed .task-description {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.delete-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .task-list-container {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .task-items li {
+    flex-wrap: wrap; /* Allow items to wrap on small screens */
+    padding: 10px 5px;
+  }
+
+  .task-items input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .task-details {
+    flex-basis: calc(100% - 35px); /* Occupy most of the width, leave space for checkbox */
+    margin-bottom: 10px; /* Add space below details before button */
+  }
+
+  .delete-button {
+    width: 100%; /* Full width button on small screens */
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

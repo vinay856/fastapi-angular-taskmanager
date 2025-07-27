@@ -1,0 +1,27 @@
+<!-- frontend/src/app/task/task-list/task-list.component.html -->
+
+<div class="task-list-container">
+  <h1>My Tasks</h1>
+
+  <!-- Embed the TaskFormComponent. (taskAdded) listens for the output event. -->
+  <app-task-form (taskAdded)="addTask($event)"></app-task-form>
+
+  <ul class="task-items">
+    <!-- Display a message if there are no tasks -->
+    <li *ngIf="tasks.length === 0" class="no-tasks-message">No tasks yet! Add some above.</li>
+
+    <!-- Loop through tasks and display each one -->
+    <li *ngFor="let task of tasks" [class.completed]="task.completed">
+      <!-- Checkbox to toggle completion status -->
+      <input type="checkbox" [checked]="task.completed" (change)="toggleCompleted(task)">
+      <div class="task-details">
+        <span class="task-title">{{ task.title }}</span>
+        <!-- Display description only if it exists -->
+        <span *ngIf="task.description" class="task-description"> - {{ task.description }}</span>
+      </div>
+      <!-- Delete button -->
+      <button class="delete-button" (click)="deleteTask(task.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+
